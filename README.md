@@ -1,22 +1,10 @@
-# ext-bracket-match
-This extension overrides bracket highlighting behaviour with something resembling [VSCode's indent guide highlighting](https://code.visualstudio.com/updates/v1_23#_highlighted-indent-guides).
+# raw-directories
 
-This may slightly increase the CPU load for cursor navigation in very large files.
+This extension adds a "raw view" to resource tree, allowing you to navigate project directories inside GMEdit.
+Handy for editing non-resource files inside project directories!
 
-![screenshot](./ext-bracket-match.png)
+You can configure raw directory path(s) in Project Properties.
 
-If your theme implements rainbow brackets, you can do that too, like so:
-```css
-/* curly brackets */
-#main .ace-tm .ace_curly.ace_paren.ace_depth1 {
-	color: #C6FF79;
-}
-
-/* bracket match rectangles and lines */
-#main .ace-tm .ace_marker-layer .ace_bracket.ace_depth1,
-#main .ace-tm .ace_marker-layer .ace_bracket_line.ace_depth1 {
-	border-color: #C6FF79;
-}
-```
+![screenshot](./raw-directories.png)
 
 [Install instructions](https://github.com/GameMakerDiscord/GMEdit/wiki/Using-plugins#installing-plugins)
