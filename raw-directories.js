@@ -7,7 +7,10 @@
 	function onOpen(e) {
 		let pj = e.project;
 		switch (pj.version.config.loadingMode) {
-			case "gms1": case "gms2": break;
+			case "gms1":
+			case "gms2":
+			case "gmk-splitter":
+				break;
 			default: return;
 		}
 		if (pj.path == null) return;
@@ -43,15 +46,17 @@
 				let out = e.target;
 				let gr = Preferences.addGroup(out, "Raw directories");
 				let arr = pj.properties.rawDirectories || ["."];
-				let el = Preferences.addInput(gr,
-					"Directory list (separated with `|`)",
-					arr.join("|"),
+				let el = Preferences.addTextArea(gr,
+					"Directory list",
+					arr.join("\n"),
 				function updateDirList(s) {
-					pj.properties.rawDirectories = s ? s.split("|") : [];
+					pj.properties.rawDirectories = s ? s.split("\n") : [];
 					ProjectProperties.save(pj, pj.properties);
 					pj.reload();
 				});
+				el.querySelector("textarea").rows = 4;
 			});
+			onOpen({ project: $gmedit["gml.Project"].current })
 		}
 	});
 })();
